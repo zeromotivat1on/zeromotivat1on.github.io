@@ -50,8 +50,8 @@ a, a:visited {
     transition: transform 0.4s ease-in-out;
 }
 .arrow-img {
-    width: 16px;
-    height: 16px;
+    width: 32px;
+    height: 32px;
     animation: arrow-down 2s infinite ease-in-out;
 }
 
@@ -80,7 +80,7 @@ a, a:visited {
     cursor: pointer;
     text-decoration: none;
     font-family: 'Balsamiq Sans';
-    font-size: 1rem;
+    font-size: 2rem;
     color: var(--clr-neon);
     /* currentColor - color of 'color' attribute*/
     border: var(--clr-neon) 0.1em solid;
@@ -151,7 +151,7 @@ a, a:visited {
     width: 100%;
     color: var(--clr-neon-light);
     font-family: sans-serif;
-    font-size: 0.5em;
+    font-size: 1rem;
     text-shadow: 0 0 0.2em var(--clr-neon-light);
     padding: 1rem;
 }
@@ -166,8 +166,8 @@ a, a:visited {
 }
 
 .ref-img {
-    width: 32px;
-    height: 32px;
+    width: 48px;
+    height: 48px;
 }
 .ref-img:hover {
     opacity: 0.8;
