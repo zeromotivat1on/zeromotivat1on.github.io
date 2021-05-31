@@ -41,7 +41,6 @@ a, a:visited {
     margin: 0 1.5em;
 }
 
-
 .arrow-down {
     cursor: pointer;
     position: absolute;
@@ -72,7 +71,7 @@ a, a:visited {
 }
 @keyframes moveFromBottom {
     0% {
-        transform: translateY(35px);
+        transform: translateY(48px);
     }
     50% {
         transform: translateY(-10px);
