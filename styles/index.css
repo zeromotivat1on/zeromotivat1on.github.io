@@ -35,7 +35,7 @@ a, a:visited {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 101vh;
+    min-height: 100vh;
 }
 .buttons a {
     margin: 0 1.5em;
@@ -71,7 +71,7 @@ a, a:visited {
 }
 @keyframes moveFromBottom {
     0% {
-        transform: translateY(48px);
+        transform: translateY(35px);
     }
     50% {
         transform: translateY(-10px);
@@ -110,7 +110,8 @@ a, a:visited {
     animation: periodicBlinkOnce 10s linear infinite;
 }
 .neon-btn-2 {
-    animation: periodicBlinkTwice 10s linear 1s infinite, periodicBlinkOnce 10s linear 3s infinite;
+    animation: periodicBlinkTwice 10s linear 1s infinite,
+                periodicBlinkOnce 10s linear 3s infinite;
 }
 .neon-btn-3 {
     animation: periodicBlinkTwice 15s linear infinite;
@@ -191,47 +192,4 @@ a, a:visited {
 .neon-btn:hover::after,
 .neon-btn:focus::after {
     opacity: 1;
-}
-
-.footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: var(--h-footer);
-    border-top: 1.5px solid var(--clr-neon);
-    box-shadow: inset 0 0.25em 0.25em -0.25em var(--clr-neon), 0 0 0.25em var(--clr-neon);
-    position: absolute;
-    width: 100%;
-    color: var(--clr-neon-light);
-    font-family: sans-serif;
-    font-size: 1rem;
-    text-shadow: 0 0 0.2em var(--clr-neon-light);
-    padding: 1rem;
-}
-
-.icons {
-    display: flex;
-    justify-content: space-between;
-}
-
-.my-ref {
-    position: relative;
-    margin-right: 1em;
-
-    transition: opacity 0.15s linear;
-}
-.my-ref:hover {
-    opacity: 0.8;
-}
-
-.ref-img {
-    width: 48px;
-    height: 48px;
-}
-
-
-.texts {
-    display: flex;
-    width: 40%;
-    justify-content: space-between;
 }
