@@ -14,8 +14,11 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    min-height: 100vh;
     background-color: var(--clr-bg);
 }
 
@@ -40,11 +43,11 @@ a, a:visited {
 
 
 .arrow-down {
+    cursor: pointer;
     position: absolute;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 15%;
     bottom: 0.5em;
 
     transition: transform 0.4s ease-in-out;
@@ -52,15 +55,27 @@ a, a:visited {
 .arrow-img {
     width: 32px;
     height: 32px;
-    animation: arrow-down 2s infinite ease-in-out;
+    animation: slightMove 2s ease-in-out infinite,
+                moveFromBottom 2s ease-in-out 1;
 }
 
-@keyframes arrow-down {
+@keyframes slightMove {
     0% {
         transform: translateY(2px);
     }
     50% {
         transform: translateY(-2px);
+    }
+    100% {
+        transform: translateY(2px);
+    }
+}
+@keyframes moveFromBottom {
+    0% {
+        transform: translateY(35px);
+    }
+    50% {
+        transform: translateY(-10px);
     }
     100% {
         transform: translateY(2px);
@@ -90,6 +105,45 @@ a, a:visited {
     text-shadow: 0 0 0.5em var(--clr-neon);
     /* inset adds shadow inside of element */
     box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.7em 0 var(--clr-neon);
+}
+
+.neon-btn-1 {
+    animation: periodicBlinkOnce 10s linear infinite;
+}
+.neon-btn-2 {
+    animation: periodicBlinkTwice 10s linear 1s infinite, periodicBlinkOnce 10s linear 3s infinite;
+}
+.neon-btn-3 {
+    animation: periodicBlinkTwice 15s linear infinite;
+}
+
+@keyframes periodicBlinkOnce {
+    0% {
+        opacity: 0;
+    }
+    3% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes periodicBlinkTwice {
+    0% {
+        opacity: 0;
+    }
+    1% {
+        opacity: 1;
+    }
+    2% {
+        opacity: 0;
+    }
+    3% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .neon-btn::before {
@@ -161,17 +215,21 @@ a, a:visited {
     justify-content: space-between;
 }
 
-.icons a {
-    padding-right: 1em;
+.my-ref {
+    position: relative;
+    margin-right: 1em;
+
+    transition: opacity 0.15s linear;
+}
+.my-ref:hover {
+    opacity: 0.8;
 }
 
 .ref-img {
     width: 48px;
     height: 48px;
 }
-.ref-img:hover {
-    opacity: 0.8;
-}
+
 
 .texts {
     display: flex;
