@@ -1,0 +1,95 @@
+.about {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow-left {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 1rem;
+    top: 0;
+}
+.arrow-left::before {
+    content: "Go to";
+    font-family: sans-serif;
+    color: var(--clr-neon-light);
+    text-shadow: 0 0 0.35em var(--clr-neon-light);
+    opacity: 0;
+    transition: opacity 0.15s linear;
+    animation: slightMove 2s ease-in-out 1.2s infinite;
+}
+.arrow-left::after {
+    content: "main";
+    font-family: sans-serif;
+    color: var(--clr-neon-light);
+    text-shadow: 0 0 0.35em var(--clr-neon-light);
+    opacity: 0;
+    transition: opacity 0.15s linear;
+    animation: slightMove 2s ease-in-out 0.8s infinite;
+}
+.arrow-img-back-to-main {
+    width: 32px;
+    height: 32px;
+    animation: slightMove 2s ease-in-out 1s infinite,
+                moveFromTop 3s ease-in-out 1;
+    margin: 0 1em;
+}
+.arrow-left:hover::before,
+.arrow-left:hover::after {
+    opacity: 1;
+}
+
+@keyframes moveFromTop {
+    0% {
+        transform: translateY(-45px) rotate(180deg);
+    }
+    33% {
+        transform: translateY(10px) rotate(180deg);
+    }
+    75% {
+        transform: translateY(2px) rotate(0deg);
+    }
+}
+.about-big {
+    user-select: none;
+    display: flex;
+    justify-content: center;
+}
+.big-letter {
+    --def-padding: 1rem;
+    font-family: 'Balsamiq Sans';
+    color: var(--clr-neon-light);
+    font-size: 5rem;
+    text-shadow: 0.08em 0.08em 0.15em var(--clr-neon);
+}
+.a-letter {
+    padding: 0 0.5rem;
+    padding-bottom: 0;
+    animation: periodicBlinkOnce 7s linear 2s infinite;
+}
+.b-letter {
+    padding: var(--def-padding) 0.5rem;
+    padding-bottom: 0;
+    animation: periodicBlinkTwice 5s linear 3s infinite;
+}
+.o-letter {
+    padding: calc(var(--def-padding) * 2) 0.5rem;
+    padding-bottom: 0;
+    animation: periodicBlinkOnce 9s linear 2s infinite;
+}
+.u-letter {
+    padding: calc(var(--def-padding) * 3) 0.5rem;
+    padding-bottom: 0;
+    animation: periodicBlinkOnce 5s linear 4s infinite;
+}
+.t-letter {
+    padding: calc(var(--def-padding) * 4) 0.5rem;
+    padding-bottom: 0;
+    animation: periodicBlinkTwice 4s linear 6s infinite;
+}

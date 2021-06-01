@@ -35,9 +35,13 @@
     height: 48px;
 }
 
-
 .texts {
     display: flex;
     width: 40%;
     justify-content: space-between;
+}
+
+.footer-hashtag {
+    color: var(--clr-neon);
+    text-shadow: 0 0 0.2em var(--clr-neon);
 }

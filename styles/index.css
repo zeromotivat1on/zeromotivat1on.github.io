@@ -26,8 +26,25 @@ body::-webkit-scrollbar {
     width: 0;
 }
 
-a, a:visited {
+a, a:visited, a:active {
     text-decoration: none;
+}
+
+.transition-1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background-color: var(--clr-bg);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s ease-in-out;
+}
+.transition-1.is-active {
+    opacity: 1;
+    pointer-events: all;
 }
 
 .main {
@@ -37,6 +54,7 @@ a, a:visited {
     flex-direction: column;
     min-height: 100vh;
 }
+
 .buttons a {
     margin: 0 1.5em;
 }
@@ -47,7 +65,8 @@ a, a:visited {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    bottom: 0.5em;
+    padding: 1rem;
+    bottom: 0;
 
     transition: transform 0.4s ease-in-out;
 }
@@ -71,13 +90,13 @@ a, a:visited {
 }
 @keyframes moveFromBottom {
     0% {
-        transform: translateY(35px);
+        transform: translateY(45px) rotate(180deg);
     }
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-10px) rotate(180deg);
     }
     100% {
-        transform: translateY(2px);
+        transform: translateY(2px) rotate(0deg);
     }
 }
 
@@ -89,6 +108,7 @@ a, a:visited {
 }
 
 .neon-btn {
+    user-select: none;
     display: inline-block;
     position: relative;
     cursor: pointer;
@@ -107,14 +127,14 @@ a, a:visited {
 }
 
 .neon-btn-1 {
-    animation: periodicBlinkOnce 10s linear infinite;
+    animation: periodicBlinkOnce 9s linear 2s infinite;
 }
 .neon-btn-2 {
-    animation: periodicBlinkTwice 10s linear 1s infinite,
-                periodicBlinkOnce 10s linear 3s infinite;
+    animation: periodicBlinkTwice 7s linear 2s infinite,
+                periodicBlinkOnce 4s linear 4s infinite;
 }
 .neon-btn-3 {
-    animation: periodicBlinkTwice 15s linear infinite;
+    animation: periodicBlinkTwice 6s linear 3s infinite;
 }
 
 @keyframes periodicBlinkOnce {
@@ -179,17 +199,14 @@ a, a:visited {
     transition: opacity 0.15s linear;
 }
   
-.neon-btn:hover,
-.neon-btn:focus {
+.neon-btn:hover {
     color: var(--clr-bg);
     text-shadow: none;
 }
 
-.neon-btn:hover::before,
-.neon-btn:focus::before {
+.neon-btn:hover::before {
     opacity: 1;
 }
-.neon-btn:hover::after,
-.neon-btn:focus::after {
+.neon-btn:hover::after {
     opacity: 1;
 }
