@@ -51,6 +51,9 @@
     }
 }
 
+
+/* Media */
+
 @media (max-width: 390px) {
     .big-letter {
         font-size: 2rem;

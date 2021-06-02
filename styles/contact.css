@@ -40,6 +40,9 @@
     }
 }
 
+
+/* Media */
+
 @media (max-width: 440px) {
     .big-letter {
         font-size: 3rem;

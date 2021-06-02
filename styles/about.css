@@ -24,6 +24,9 @@
     animation: periodicBlinkTwice 4s linear 6s infinite;
 }
 
+
+/* Media */
+
 @media (max-width: 390px) {
     .big-letter {
         font-size: 3rem;
