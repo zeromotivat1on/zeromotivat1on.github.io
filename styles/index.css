@@ -72,7 +72,6 @@ a, a:visited, a:active {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 1rem;
     bottom: 0;
 
     transition: transform 0.4s ease-in-out;
@@ -97,7 +96,7 @@ a, a:visited, a:active {
 }
 @keyframes moveFromBottom {
     0% {
-        transform: translateY(45px) rotate(180deg);
+        transform: translateY(35px) rotate(180deg);
     }
     50% {
         transform: translateY(-10px) rotate(180deg);
@@ -225,7 +224,6 @@ a, a:visited, a:active {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    margin: 1rem;
     top: 0;
 }
 .arrow-left::before {
@@ -251,7 +249,7 @@ a, a:visited, a:active {
     height: 32px;
     animation: slightMove 2s ease-in-out 1s infinite,
                 moveFromTop 3s ease-in-out 1;
-    margin: 0 1em;
+    margin: 0 1rem;
 }
 .arrow-left:hover::before,
 .arrow-left:hover::after {
