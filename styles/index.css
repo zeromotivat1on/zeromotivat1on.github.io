@@ -55,6 +55,13 @@ a, a:visited, a:active {
     min-height: 100vh;
 }
 
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 .buttons a {
     margin: 0 1.5em;
 }
@@ -209,4 +216,98 @@ a, a:visited, a:active {
 }
 .neon-btn:hover::after {
     opacity: 1;
+}
+
+
+.arrow-left {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 1rem;
+    top: 0;
+}
+.arrow-left::before {
+    content: "Go to";
+    font-family: sans-serif;
+    color: var(--clr-neon-light);
+    text-shadow: 0 0 0.35em var(--clr-neon-light);
+    opacity: 0;
+    transition: opacity 0.15s linear;
+    animation: slightMove 2s ease-in-out 1.2s infinite;
+}
+.arrow-left::after {
+    content: "main";
+    font-family: sans-serif;
+    color: var(--clr-neon-light);
+    text-shadow: 0 0 0.35em var(--clr-neon-light);
+    opacity: 0;
+    transition: opacity 0.15s linear;
+    animation: slightMove 2s ease-in-out 0.8s infinite;
+}
+.arrow-img-back-to-main {
+    width: 32px;
+    height: 32px;
+    animation: slightMove 2s ease-in-out 1s infinite,
+                moveFromTop 3s ease-in-out 1;
+    margin: 0 1em;
+}
+.arrow-left:hover::before,
+.arrow-left:hover::after {
+    opacity: 1;
+}
+
+@keyframes moveFromTop {
+    0% {
+        transform: translateY(-45px) rotate(180deg);
+    }
+    33% {
+        transform: translateY(10px) rotate(180deg);
+    }
+    75% {
+        transform: translateY(2px) rotate(0deg);
+    }
+}
+.curr-page-big-logo {
+    user-select: none;
+    display: flex;
+    justify-content: center;
+}
+.big-letter {
+    --def-padding: 1rem;
+    font-family: 'Balsamiq Sans';
+    color: var(--clr-neon-light);
+    font-size: 5rem;
+    text-shadow: 0.08em 0.08em 0.15em var(--clr-neon);
+}
+
+
+
+@media (max-width: 820px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .buttons a {
+        margin: 1.5em 0;
+    }
+
+    .neon-btn-1 {
+        margin-top: 20em; 
+    }
+    .neon-btn-2 {
+        animation: periodicBlinkTwice 7s linear 2s infinite,
+                    periodicBlinkOnce 4s linear 4s infinite;
+    }
+    .neon-btn-3 {
+        animation: periodicBlinkTwice 6s linear 3s infinite;
+    }
 }
