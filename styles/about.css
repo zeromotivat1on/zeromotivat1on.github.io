@@ -23,18 +23,3 @@
     padding-bottom: 0;
     animation: periodicBlinkTwice 4s linear 6s infinite;
 }
-
-
-/* Media */
-
-@media (max-width: 390px) {
-    .big-letter {
-        font-size: 3rem;
-    }
-}
-
-@media (max-width: 290px) {
-    .big-letter {
-        font-size: 2rem;
-    }
-}
