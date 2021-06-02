@@ -10,7 +10,7 @@ window.onload = () => {
     // Following part of code rewrites the logic of anchors in order to
     // make page transition not only while loading, but while going through ref
     const anchors = document.querySelectorAll('a')
-    for(let i in anchors) {
+    for(let i = 0 ; i < anchors.length; ++i) {
         anchors[i].addEventListener('click', (e) => {
             e.preventDefault()
             let target = e.target.href
