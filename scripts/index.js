@@ -1,34 +1,14 @@
-window.onload = () => {
-    includeHTML() // function to include part of html code
+const arrowDown = document.querySelector('.arrow-down-box')
+const fixedBottomArrowBtn = document.querySelector('.arrow-down-fixed')
+const scrollBoundedItems = document.querySelectorAll('.scroll-bounded-animation')
 
-    // Page transition
-    const transitionElem = document.querySelector('.transition')
-    setTimeout(() => {
-        transitionElem.classList.remove('is-active')
-    }, 500)
-
-    // Following part of code rewrites the logic of anchors in order to
-    // make page transition not only while loading, but while going through ref
-    const anchors = document.querySelectorAll('a')
-    for(let i = 0 ; i < anchors.length; ++i) {
-        anchors[i].addEventListener('click', (e) => {
-            e.preventDefault()
-            let target = e.target.href
-            if(target === undefined) target = 'index.html'
-            transitionElem.classList.add('is-active')
-
-            setTimeout(() => {
-                window.location.href = target
-            }, 500)
-        })
-    }
-}
-
-const arrowDown = document.querySelector('.arrow-down')
 let clockwiseRotation = true,
     arrowPointsDown = true // check arrow point direction in order to scroll in correct way, while its clicked
+// Bottom arrow down (only main page) scroll logic
 window.addEventListener('scroll', () => {
-    let scrollPos = this.scrollY
+    if(!arrowDown) return null
+
+    let scrollPos = window.scrollY
     if(scrollPos !== 0) { // if we scrolled - rotate arrow button
         arrowDown.style.transform = 'rotate(180deg)'
         arrowPointsDown = false
@@ -46,7 +26,36 @@ window.addEventListener('scroll', () => {
     }
 })
 
-arrowDown.addEventListener('click', () => {
-    if(arrowPointsDown) window.scrollBy(0, window.innerHeight)
-    else window.scrollBy(0, -window.innerHeight)
+if(arrowDown) 
+    arrowDown.addEventListener('click', () => {
+        if(arrowPointsDown) window.scrollBy(0, window.innerHeight)
+        else window.scrollBy(0, -window.innerHeight)
+    })
+
+// Bottom fixed arrow down (all other pages) scroll logic
+window.addEventListener('scroll', () => {
+    if(!fixedBottomArrowBtn) return null
+
+    let scrollPos = window.scrollY
+    console.log(scrollPos, window.innerHeight)
+    if(scrollPos >= window.innerHeight) { // works only now for about page (remaster required)
+        fixedBottomArrowBtn.style.transform = 'rotate(180deg)'
+        fixedBottomArrowBtn.style.bottom = `${Math.floor(scrollPos - window.innerHeight)}px`
+    } else {
+        fixedBottomArrowBtn.style.transform = 'rotate(0deg)'
+        fixedBottomArrowBtn.style.bottom = '0'
+    }
+
+    if(!scrollBoundedItems) return null
+
+    for(let i = 0; i < scrollBoundedItems.length; ++i) {
+        let sbiOffset = scrollBoundedItems[i].offsetTop // top offset of scroll bounded items
+        if(scrollPos > 150) {
+            scrollBoundedItems[i].style.opacity = 0
+            scrollBoundedItems[i].style.transform = 'translateY(-50px)'
+        } else {
+            scrollBoundedItems[i].style.opacity = 1
+            scrollBoundedItems[i].style.transform = 'translateY(0px)'
+        }
+    }
 })

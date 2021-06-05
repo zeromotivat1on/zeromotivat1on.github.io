@@ -23,3 +23,24 @@
     padding-bottom: 0;
     animation: periodicBlinkTwice 4s linear 6s infinite;
 }
+
+.about-me-part {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+}
+.about-me-header {
+    display: flex;
+    font-family: 'Balsamiq Sans';
+    color: var(--clr-neon);
+    font-size: clamp(2rem, 10vw, 3rem);
+    text-shadow: 0 0 0.2em var(--clr-neon);
+}
+
+.about-me-text {
+    font-family: sans-serif;
+    color: var(--clr-neon-light);
+    font-size: 1rem;
+    text-shadow: 0 0 0.2em var(--clr-neon-light);
+}

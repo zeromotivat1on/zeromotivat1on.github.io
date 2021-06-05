@@ -7,12 +7,12 @@
     <title>About</title>
     <link rel="shortcut icon" type="image/x" href="images/favicon.ico">
     <link rel="stylesheet" href="styles/index.css">
-    <link rel="stylesheet" href="styles/about.css">
     <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/about.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap">
-    <script defer src="scripts/about.js"></script>
-    <script defer src="scripts/index.js"></script>
     <script defer src="scripts/utils/includeHTML.js"></script>
+    <script defer src="scripts/index.js"></script>
+    <script defer src="scripts/about.js"></script>
 </head>
 <body>
 
@@ -22,16 +22,22 @@
         <a href="index.html" class="arrow-left">
             <img class="arrow-img-back-to-main" src="images/arrow-up.png">
         </a>
-        <div class="curr-page-big-logo">
+        <div class="curr-page-big-logo scroll-bounded-animation">
             <span class="a-letter big-letter">A</span>
             <span class="b-letter big-letter">B</span>
             <span class="o-letter big-letter">O</span>
             <span class="u-letter big-letter">U</span>
             <span class="t-letter big-letter">T</span>
         </div>
-        <div class="arrow-down">
-            <img class="arrow-img" src="images/arrow-down.png">
+        <div class="arrow-down-fixed">
+            <div class="arrow-down-box-fixed">
+                <img class="arrow-img" src="images/arrow-down.png">
+            </div>
         </div>
+    </div>
+    <div class="about-me-part">
+        <h2 class="about-me-header">Hi!</h2>
+        <p class="about-me-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae optio provident cumque voluptatem libero amet reprehenderit tenetur ipsam esse omnis?</p>
     </div>
     <include w3-include-html="layouts/footer.html"></include>
 </body>
