@@ -272,6 +272,7 @@ a, a:visited, a:active {
         transform: translateY(2px) rotate(0deg);
     }
 }
+
 .curr-page-big-logo {
     user-select: none;
     display: flex;
@@ -279,16 +280,16 @@ a, a:visited, a:active {
     transition: opacity 0.25s ease-in-out,
                 transform 0.25s ease-in-out;
 }
+
 .big-letter {
     --def-padding: 1rem;
     font-family: 'Balsamiq Sans';
     color: var(--clr-neon-light);
     font-size: clamp(1rem, 15vw, 5rem);
-    text-shadow: 0.08em 0.08em 0.15em var(--clr-neon);
+    text-shadow: 0.05em 0.05em 0.15em var(--clr-neon);
 }
 
 .arrow-down-fixed {
-    pointer-events: none;
     position: fixed;
     display: flex;
     justify-content: space-around;
@@ -306,12 +307,6 @@ a, a:visited, a:active {
 /* Media */
 
 @media (max-width: 820px) {
-    .main {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
-
     .buttons {
         display: flex;
         flex-direction: column;
