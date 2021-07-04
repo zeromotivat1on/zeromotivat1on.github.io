@@ -1,3 +1,8 @@
+a, a:visited, a:active {
+    text-decoration: none;
+    color: currentColor;
+}
+
 .a-letter {
     padding: 0 0.5rem;
     padding-bottom: 0;
@@ -28,6 +33,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 0 5em;;
     min-height: 100vh;
 }
 .about-me-header {
@@ -35,12 +41,16 @@
     font-family: 'Balsamiq Sans';
     color: var(--clr-neon);
     font-size: clamp(2rem, 10vw, 3rem);
-    text-shadow: 0 0 0.2em var(--clr-neon);
+    text-shadow: 0 0 0.1em var(--clr-neon);
 }
 
 .about-me-text {
     font-family: sans-serif;
-    color: var(--clr-neon-light);
+    color: var(--clr-neon-alt);
     font-size: 1rem;
-    text-shadow: 0 0 0.2em var(--clr-neon-light);
+    text-shadow: 0 0 0.1em var(--clr-neon-alt);
+}
+
+.educational-facility-anchor:hover {
+    text-decoration: underline;
 }

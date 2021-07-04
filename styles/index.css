@@ -1,9 +1,18 @@
 :root {
+    --h-footer: 80px;
+
+    --clr-transparent: rgba(255, 255, 255, 0);
+}
+
+.theme-light {
+    --clr-bg: rgb(245, 245, 255);
+    --clr-neon: rgb(25, 145, 215);
+    --clr-neon-alt: rgb(15, 120, 180);
+}
+.theme-dark {
     --clr-bg: rgb(10, 0, 15);
     --clr-neon: rgb(230, 0, 175);
-    --clr-neon-light: rgb(240, 135, 215);
-
-    --h-footer: 80px;
+    --clr-neon-alt: rgb(240, 135, 215);
 }
 
 *,
@@ -47,6 +56,30 @@ a, a:visited, a:active {
     pointer-events: all;
 }
 
+.switch-theme-button {
+    --box-shadow-pos: 0.25em;
+    cursor: pointer;
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 1em 1.5em;
+    font-family: sans-serif;
+    padding: 0.3em 0.7em;
+    border-radius: 0.2em;
+    background-color: var(--clr-neon);
+    color: var(--clr-bg);
+    z-index: 100;
+    box-shadow: var(--box-shadow-pos) var(--box-shadow-pos) 0 var(--clr-neon-alt);
+
+    transition: box-shadow 0.2s ease-in-out,
+                transform 0.2s ease-in-out;
+}
+.switch-theme-button:hover {
+    box-shadow: none;
+    transform: translate(var(--box-shadow-pos), var(--box-shadow-pos));
+}
+
 .main {
     display: flex;
     justify-content: center;
@@ -67,7 +100,6 @@ a, a:visited, a:active {
 }
 
 .arrow-down {
-    cursor: pointer;
     position: absolute;
     display: flex;
     justify-content: space-around;
@@ -77,27 +109,18 @@ a, a:visited, a:active {
     transition: transform 0.4s ease-in-out;
 }
 .arrow-down-box {
+    cursor: pointer;
     transition: transform 0.4s ease-in-out;
 }
 .arrow-img {
-    width: 32px;
+    width: 36px;
     height: 32px;
+    fill: var(--clr-neon);
     animation: slightMove 2s ease-in-out infinite,
                 moveFromBottom 2s ease-in-out 1;
     transform: rotate(100deg);
 }
 
-@keyframes slightMove {
-    0% {
-        transform: translateY(2px);
-    }
-    50% {
-        transform: translateY(-2px);
-    }
-    100% {
-        transform: translateY(2px);
-    }
-}
 @keyframes moveFromBottom {
     0% {
         transform: translateY(35px) rotate(180deg);
@@ -125,13 +148,13 @@ a, a:visited, a:active {
     text-decoration: none;
     font-family: 'Balsamiq Sans';
     font-size: 2rem;
-    color: var(--clr-neon-light);
+    color: var(--clr-neon-alt);
     /* currentColor - color of 'color' attribute*/
     border: var(--clr-neon) 0.1em solid;
     padding: 0.25em 1em;
     border-radius: 0.25em;
 
-    text-shadow: 0 0 0.5em var(--clr-neon-light);
+    text-shadow: 0 0 0.5em var(--clr-neon-alt);
     /* inset adds shadow inside of element */
     box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.7em 0 var(--clr-neon);
 }
@@ -221,21 +244,29 @@ a, a:visited, a:active {
     opacity: 1;
 }
 
+.arrow-left-box {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom,  var(--clr-bg) 50%, var(--clr-transparent));
+    z-index: 10;
+}
 
 .arrow-left {
-    position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     padding: 1rem;
-    top: 0;
 }
 .arrow-left::before {
     content: "Go to";
     font-family: sans-serif;
-    color: var(--clr-neon-light);
-    text-shadow: 0 0 0.35em var(--clr-neon-light);
+    color: var(--clr-neon-alt);
+    text-shadow: 0 0 0.35em var(--clr-neon-alt);
     opacity: 0;
     transition: opacity 0.15s linear;
     animation: slightMove 2s ease-in-out 1.2s infinite;
@@ -243,17 +274,18 @@ a, a:visited, a:active {
 .arrow-left::after {
     content: "main";
     font-family: sans-serif;
-    color: var(--clr-neon-light);
-    text-shadow: 0 0 0.35em var(--clr-neon-light);
+    color: var(--clr-neon-alt);
+    text-shadow: 0 0 0.35em var(--clr-neon-alt);
     opacity: 0;
     transition: opacity 0.15s linear;
     animation: slightMove 2s ease-in-out 0.8s infinite;
 }
 .arrow-img-back-to-main {
     width: 32px;
-    height: 32px;
+    height: 36px;
+    fill: var(--clr-neon);
     animation: slightMove 2s ease-in-out 1s infinite,
-                moveFromTop 3s ease-in-out 1;
+                moveFromTopAlt 3s ease-in-out 1;
     margin: 0 1rem;
 }
 .arrow-left:hover::before,
@@ -273,6 +305,29 @@ a, a:visited, a:active {
     }
 }
 
+@keyframes moveFromTopAlt {
+    0% {
+        transform: translateY(-45px) rotate(0deg);
+    }
+    33% {
+        transform: translateY(10px) rotate(0deg);
+    }
+    75% {
+        transform: translateY(2px) rotate(180deg);
+    }
+}
+
+@keyframes slightMove {
+    0% {
+        transform: translateY(2px);
+    }
+    50% {
+        transform: translateY(-2px);
+    }
+    100% {
+        transform: translateY(2px);
+    }
+}
 .curr-page-big-logo {
     user-select: none;
     display: flex;
@@ -284,7 +339,7 @@ a, a:visited, a:active {
 .big-letter {
     --def-padding: 1rem;
     font-family: 'Balsamiq Sans';
-    color: var(--clr-neon-light);
+    color: var(--clr-neon-alt);
     font-size: clamp(1rem, 15vw, 5rem);
     text-shadow: 0.05em 0.05em 0.15em var(--clr-neon);
 }
@@ -296,6 +351,9 @@ a, a:visited, a:active {
     align-items: center;
     bottom: 0;
     padding: 1rem;
+    width: 100%;
+    background: linear-gradient(to top,  var(--clr-bg) 50%, var(--clr-transparent));
+    z-index: 10;
     transition: opacity 0.25s ease-in-out,
                 transform 0.4s ease-in-out;
     padding-right: calc(1rem + 3.5px); /* dont even ask */

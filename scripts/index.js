@@ -1,6 +1,8 @@
 const arrowDown = document.querySelector('.arrow-down-box')
-const fixedBottomArrowBtn = document.querySelector('.arrow-down-fixed')
+const fixedBottomArrowBtn = document.querySelector('.arrow-down-box-fixed')
 const scrollBoundedItems = document.querySelectorAll('.scroll-bounded-animation')
+const fixedTopArrowBtn = document.querySelector('.arrow-left') 
+const switchThemeBtn = document.querySelector('.switch-theme-button')
 
 let clockwiseRotation = true,
     arrowPointsDown = true // check arrow point direction in order to scroll in correct way, while its clicked
@@ -36,26 +38,31 @@ if(arrowDown)
 window.addEventListener('scroll', () => {
     if(!fixedBottomArrowBtn) return null
 
-    let scrollPos = window.scrollY
-    console.log(scrollPos, window.innerHeight)
-    if(scrollPos >= window.innerHeight) { // works only now for about page (remaster required)
-        fixedBottomArrowBtn.style.transform = 'rotate(180deg)'
-        fixedBottomArrowBtn.style.bottom = `${Math.floor(scrollPos - window.innerHeight)}px`
+    
+})
+
+// Theme changing
+function setTheme(themeName) {
+    localStorage.setItem('theme', themeName)
+    document.documentElement.className = themeName
+}
+
+switchThemeBtn.addEventListener('click', () => {
+    if (localStorage.getItem('theme') === 'theme-dark'){
+        setTheme('theme-light')
+        switchThemeBtn.innerHTML = '<b>Light</b>'
     } else {
-        fixedBottomArrowBtn.style.transform = 'rotate(0deg)'
-        fixedBottomArrowBtn.style.bottom = '0'
-    }
-
-    if(!scrollBoundedItems) return null
-
-    for(let i = 0; i < scrollBoundedItems.length; ++i) {
-        let sbiOffset = scrollBoundedItems[i].offsetTop // top offset of scroll bounded items
-        if(scrollPos > 150) {
-            scrollBoundedItems[i].style.opacity = 0
-            scrollBoundedItems[i].style.transform = 'translateY(-50px)'
-        } else {
-            scrollBoundedItems[i].style.opacity = 1
-            scrollBoundedItems[i].style.transform = 'translateY(0px)'
-        }
+        setTheme('theme-dark')
+        switchThemeBtn.innerHTML = '<b>Dark</b>'
     }
 })
+
+;(function () {
+    if (localStorage.getItem('theme') === 'theme-dark'){
+        setTheme('theme-dark')
+        switchThemeBtn.innerHTML = '<b>Dark</b>'
+    } else {
+        setTheme('theme-light')
+        switchThemeBtn.innerHTML = '<b>Light</b>'
+    }
+})()    

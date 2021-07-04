@@ -1,8 +1,8 @@
 /**
  * Following file uses includeHTML() function, which includes
- * som part of HTML code from another file and
+ * som part of HTML code from another file 
+ * and window.onload function that
  * rewrites the logic of anchors in order to make page transition
- * 
  */
 
 // Code is provided by https://www.w3schools.com
